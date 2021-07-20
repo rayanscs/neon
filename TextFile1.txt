@@ -1,0 +1,42 @@
+Escreva um algoritmo que encontre o maior e o menor número de uma lista de inteiros.
+
+Explicação: Dado uma lista de inteiros como entrada, 
+o algoritmo precisará retornar o maior e o menor número dentro da lista de inteiros.
+
+Enivar o exercicio:
+otavio.salomao@neon.com.br
+
+
+
+
+Premissa:
+
+Em uma pasta, são criados arquivos que indicam depósitos de dinheiro em contas de diferentes clientes da Neon. 
+Nestes arquivos, cada linha é uma transação recebida. Em cada linha existem as seguintes informações:
+
+banco origem 
+agência origem 
+
+conta origem 
+conta destino 
+valor 
+tipo de transação
+
+
+
+1. Criar a aplicação que fará a leitura e interpretação destes arquivos. Esse worker vai buscar estes arquivos sempre na mesma pasta. 
+Não há necessidade de planejar gravação em BD, apenas as regras negócio. 
+Os arquivos a serem recebidos serão TED’s que chegaram aos clientes, portanto o campo "tipo de transação" virá preenchido com o valor "TED".
+
+
+Realizar a validação destes registros. Pode-se presumir que o arquivo sempre virá no formato correto, mas validar se as informações dessa linha batem com o que existe na Neon.
+Depois disso, para os registros inválidos, uma mensagem de log deve ser exibida na tela, e caso seja válido, um e-mail com os dados da transação deve ser enviado ao cliente.
+
+
+Com isso construído, a aplicação deve realizar uma chamada a uma API interna da Neon e uma chamada a uma API de um parceiro externo. 
+Historicamente estas APIs apresentam uma certa instabilidade, portanto deve-se levar em consideração que elas podem estar offline a qualquer momento. 
+O e-mail do passo anterior deve continuar a ser enviado.
+
+
+Agora, um novo arquivo será disponibilizado na pasta, e nele vamos receber os DOCs de vários clientes, devidamente identificado no campo "tipo de transação". 
+Depois que a validação do arquivo for realizada, apenas uma API interna deve ser chamada, que deve ter a mesma preocupação com resiliência que no passo anterior.
